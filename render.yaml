@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: pawnova-free-preview
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 1 --bind 0.0.0.0:$PORT
+
+    envVars:
+      - key: DATABASE_PATH
+        value: /tmp/pawnova.db
+
+      - key: ADMIN_USER
+        sync: false
+
+      - key: ADMIN_PASS
+        sync: false
+
+      - key: SECRET_KEY
+        generateValue: true
+
+      - key: BRANDING_NAME
+        value: P A W
+
+      - key: BRANDING_TELEGRAM
+        value: "@K0ZT1"
+
+      - key: DEVICE_IDLE_MINUTES
+        value: "10"
+
+      - key: DEVICE_LOCK_ENABLED
+        value: "1"
+
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "60"
+
+      - key: PRICE_PER_TABLE
+        value: "50000"
+
+      - key: PRICE_PER_BUNDLE
+        value: "80000"
+
+      - key: PRICE_ALL
+        value: "350000"
+        
