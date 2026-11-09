@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+.env
+.env.*
+!.env.example
+
+*.db
+*.db-shm
+*.db-wal
+
+data/
+.DS_Store
+.idea/
+.vscode/
